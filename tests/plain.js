@@ -36,4 +36,10 @@ QUnit.module('Тестируем функцию plain', function () {
 	QUnit.test('Работает с элементами разных типов', function (assert) {
 		assert.deepEqual(plain([['abcde'], [['f'], [null, false], [NaN, NaN], NaN], -Infinity]), ['abcde', 'f', null, false, NaN, NaN, NaN, -Infinity]);
 	});
+	
+	QUnit.test('Мой тест', function (assert) {
+		assert.deepEqual(plain([[33], [], 75, 23, [[[], 54, 2]]]), [33, 75, 23, 54, 2]);
+		assert.deepEqual(plain([[42], [], 42]), [42, 42]);
+		assert.deepEqual(plain(["asdasd", NaN, [], [[500, []]]]), ["asdasd", NaN, 500]);
+	});
 });
